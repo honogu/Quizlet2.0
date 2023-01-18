@@ -59,13 +59,13 @@
     </form>
     <button class="next" type="button" v-if="!status" v-on:click="Next()"><h1>Continue</h1></button>
   </div>
-  <div class="form-container" v-else>
-    <h1>Nice work, you’re crushing it.</h1>
+  <div class="form-container-end" v-else>
+    <h1 id="title">Nice work, you’re crushing it.</h1>
     <h2>{{ correctCount + ' / ' + totalCount + ' terms'}}</h2>
     <div class="answer-bar-container">
       <div class="answer-bar" :style="{ width: lastPercentage + '%'}"></div>
     </div>
-    <button class="next" type="button" v-on:click="StartLearn(currentWords)">Start over</button>
+    <button class="next" type="button" v-on:click="StartLearn(currentWords)"><h1>Start over</h1></button>
   </div>
 </template>
 
@@ -125,6 +125,9 @@ form {
 .form-container {
   margin-top: 100px;
 }
+.form-container-end {
+  padding: 0 15px;
+}
 .button-container {
   width: 100%;
   height: auto;
@@ -175,19 +178,29 @@ button #nr {
   text-align: center;
   font-size: 15px;
 }
+#title {
+  margin-top: 85px;
+}
 .next:hover {
   background-color: #5a6dfa;
 }
 .button-container button:disabled {
   opacity: 0.5;
+  transition: opacity 500ms;
   border-color: #748dcd;
 }
 .button-container .correct {
+  transition: opacity 500ms;
+  transition: border-color 500ms;
+  transition: background-color 500ms;
   opacity: 1 !important;
   border-color: white !important;
   background-color: #327f4e !important;
 }
 .button-container .wrong {
+  transition: opacity 500ms;
+  transition: border-color 500ms;
+  transition: background-color 500ms;
   opacity: 1 !important;
   border-color: #ee706a !important;
 }
