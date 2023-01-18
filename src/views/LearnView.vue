@@ -57,7 +57,7 @@
         </div>
       </div>
     </form>
-    <button class="next" type="button" v-if="!status" v-on:click="Next()">Continue</button>
+    <button class="next" type="button" v-if="!status" v-on:click="Next()"><h1>Continue</h1></button>
   </div>
   <div class="form-container" v-else>
     <h1>Nice work, you’re crushing it.</h1>
@@ -133,7 +133,7 @@ form {
   gap: 2%;
   row-gap: 20px;
 }
-button, button:visited {
+.button-container button {
   background-color: transparent;
   border: 2px solid #748dcd94;
   border-radius: 5px;
@@ -156,6 +156,7 @@ button h2 {
 button #nr {
   margin-right: 16px;
   width: 25px;
+  min-width: 25px;
   border-radius: 15px;
   text-align: center;
   background-color: #313546;
@@ -163,9 +164,16 @@ button #nr {
 .next {
   margin-top: 50px;
   width: 120px;
-  text-align: center;
   background-color: #445aff;
   border: none;
+  padding: 5px;
+  height: 40px;
+  border-radius: 5px;
+}
+.next h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 15px;
 }
 .next:hover {
   background-color: #5a6dfa;
@@ -253,7 +261,10 @@ button #nr {
     grid-template-columns: auto;
   }
   .next {
-    margin: 15px 15px;
+    margin-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
   }
 }
 </style>
