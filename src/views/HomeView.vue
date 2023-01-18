@@ -104,7 +104,6 @@
 
 <script setup lang="ts">
 import useWords from '../stores/WordsStore';
-import useLearn from '../stores/LearnStore';
 import { U1_1, U1_2, U1_3 } from '../models/U1';
 import { U2_1, U2_2, U2_3 } from '../models/U2';
 import { U3_1, U3_2, U3_3 } from '../models/U3';

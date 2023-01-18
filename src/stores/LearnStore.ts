@@ -1,5 +1,6 @@
 import { ref } from 'vue';
 import { Learn } from '../models/Learn';
+import { correctMessages, wrongMessages } from '../models/Messages';
 
 const currentWords = ref<Learn[]>([]);
 
@@ -14,6 +15,9 @@ const totalCount = ref(0);
 const correctWords = ref<Learn[]>([]);
 const wrongWords = ref<Learn[]>([]);
 const lastPercentage = ref(0);
+
+const correctMessage = ref('');
+const wrongMessage = ref('');
 
 const repeatingWord = ref(false);
 const currentWord = ref<Learn>();
@@ -42,6 +46,11 @@ export default function useLearn() {
         let randomIndex = Math.floor(Math.random() * remainingWords.value.length);
         currentWord.value = remainingWords.value[randomIndex];
 
+        randomIndex = Math.floor(Math.random() * correctMessages.value.length);
+        correctMessage.value = correctMessages.value[randomIndex];
+        randomIndex = Math.floor(Math.random() * wrongMessages.value.length);
+        wrongMessage.value = wrongMessages.value[randomIndex];
+
         if (wrongWords.value.indexOf(currentWord.value!) != -1) repeatingWord.value = true
 
         while (randomAnswers.value.length != 3) {
@@ -68,7 +77,7 @@ export default function useLearn() {
         }
     }
 
-    return { SetWords, StartLearn, currentWords, currentWord, randomAnswers, SubmitResult, NextQuestion, percentage, correctCount, totalCount, lastPercentage, repeatingWord };
+    return { SetWords, StartLearn, currentWords, currentWord, randomAnswers, SubmitResult, NextQuestion, percentage, correctCount, totalCount, lastPercentage, repeatingWord, correctMessage, wrongMessage };
 }
 
 function shuffle(array: any) {

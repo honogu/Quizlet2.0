@@ -15,8 +15,8 @@
         <h3>{{ currentWord?.question }}</h3>
       </div>
       <div>
-        <h3 class="motivate-wr" v-if="clicked && currentWord?.answer != selectedAnswer">Sa suudad seda!</h3>
-        <h3 class="motivate-co" v-else-if="clicked && currentWord?.answer == selectedAnswer">Hea töö!</h3>
+        <h3 class="motivate-wr" v-if="clicked && currentWord?.answer != selectedAnswer">{{ wrongMessage }}</h3>
+        <h3 class="motivate-co" v-else-if="clicked && currentWord?.answer == selectedAnswer">{{ correctMessage }}</h3>
         <h3 class="motivate" v-else>Choose matching term</h3>
         <div class="button-container">
           <button
@@ -74,7 +74,7 @@ import Navbar from "@/components/NavbarComp.vue";
 import useLearn from '../stores/LearnStore';
 import { onMounted, ref, watch } from 'vue';
 import router from "@/router";
-const { currentWord, randomAnswers, SubmitResult, StartLearn, currentWords, NextQuestion, percentage, correctCount, totalCount, lastPercentage, repeatingWord } = useLearn();
+const { currentWord, randomAnswers, SubmitResult, StartLearn, currentWords, NextQuestion, percentage, correctCount, totalCount, lastPercentage, repeatingWord, correctMessage, wrongMessage } = useLearn();
 const status = ref<boolean>(true);
 const clicked = ref<boolean>(false);
 const selectedAnswer = ref();
