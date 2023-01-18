@@ -259,12 +259,6 @@ button #nr {
   width: 100%;
 }
 
-@media (hover: hover) {
-  .button-container button:hover {
-    border-color: white;
-  }
-}
-
 @media only screen and (max-width: 800px) {
   .form-container {
     margin-top: 63px;
