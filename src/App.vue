@@ -19,7 +19,7 @@ body {
   justify-content: center;
 }
 main {
-  width: 60%;
+  width: 53%;
 }
 a, h2 {
   color: white;

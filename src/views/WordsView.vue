@@ -122,7 +122,7 @@ button {
         margin-right: 15px;
     }
     .all-words .words div {
-        padding-left: 5px;
+        padding-left: 0;
     }
 }
 </style>
