@@ -20,7 +20,6 @@ body {
 }
 main {
   width: 60%;
-  margin-bottom: 50px;
 }
 a, h2 {
   color: white;

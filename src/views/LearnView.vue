@@ -5,7 +5,7 @@
       <div class="bar" :style="{ width: percentage + '%'}"></div>
     </div>
   </div>
-  <div v-if="percentage != 100">
+  <div class="form-container" v-if="percentage != 100">
     <form>
       <div>
         <section>Definition</section>
@@ -20,34 +20,45 @@
             :class="clicked && (qurrentWord?.answer == randomAnswers[0] || selectedAnswer == randomAnswers[0])
               ? qurrentWord?.answer == randomAnswers[0] ? 'correct' : 'wrong' : ''" 
             v-on:click="submitAnswer(randomAnswers[0])" :disabled="clicked" type="button">
-            {{ randomAnswers[0] }}
+            <h2 id="nr">{{ clicked && (qurrentWord?.answer == randomAnswers[0] || selectedAnswer == randomAnswers[0])
+              ? qurrentWord?.answer == randomAnswers[0] ? '✔️' : '❌' : '1' }}</h2>
+            <h2>{{ randomAnswers[0] }}</h2>
           </button>
-          <button 
+
+          <button
             :class="clicked && (qurrentWord?.answer == randomAnswers[1] || selectedAnswer == randomAnswers[1])
               ? qurrentWord?.answer == randomAnswers[1] ? 'correct' : 'wrong' : ''" 
             v-on:click="submitAnswer(randomAnswers[1])" :disabled="clicked" type="button">
-            {{ randomAnswers[1] }}
+            <h2 id="nr">{{ clicked && (qurrentWord?.answer == randomAnswers[1] || selectedAnswer == randomAnswers[1])
+              ? qurrentWord?.answer == randomAnswers[1] ? '✔️' : '❌' : '2' }}</h2>
+            <h2>{{ randomAnswers[1] }}</h2>
           </button>
-          <button 
+
+          <button
             :class="clicked && (qurrentWord?.answer == randomAnswers[2] || selectedAnswer == randomAnswers[2])
               ? qurrentWord?.answer == randomAnswers[2] ? 'correct' : 'wrong' : ''" 
             v-on:click="submitAnswer(randomAnswers[2])" :disabled="clicked" type="button">
-            {{ randomAnswers[2] }}
+            <h2 id="nr">{{ clicked && (qurrentWord?.answer == randomAnswers[2] || selectedAnswer == randomAnswers[2])
+              ? qurrentWord?.answer == randomAnswers[2] ? '✔️' : '❌' : '3' }}</h2>
+            <h2>{{ randomAnswers[2] }}</h2>
           </button>
-          <button 
+
+          <button
             :class="clicked && (qurrentWord?.answer == randomAnswers[3] || selectedAnswer == randomAnswers[3])
               ? qurrentWord?.answer == randomAnswers[3] ? 'correct' : 'wrong' : ''" 
             v-on:click="submitAnswer(randomAnswers[3])" :disabled="clicked" type="button">
-            {{ randomAnswers[3] }}
+            <h2 id="nr">{{ clicked && (qurrentWord?.answer == randomAnswers[3] || selectedAnswer == randomAnswers[3])
+              ? qurrentWord?.answer == randomAnswers[3] ? '✔️' : '❌' : '4' }}</h2>
+            <h2>{{ randomAnswers[3] }}</h2>
           </button>
         </div>
       </div>
     </form>
     <button class="next" type="button" v-if="!status" v-on:click="Next()">Continue</button>
   </div>
-  <div v-else>
+  <div class="form-container" v-else>
     <h1>Nice work, you’re crushing it.</h1>
-    <h1>{{ correctCount + ' / ' + totalCount + ' terms'}}</h1>
+    <h2>{{ correctCount + ' / ' + totalCount + ' terms'}}</h2>
     <div class="answer-bar-container">
       <div class="answer-bar" :style="{ width: lastPercentage + '%'}"></div>
     </div>
@@ -100,7 +111,6 @@ const Next = () => {
 
 <style scoped>
 form {
-  margin-top: 100px;
   padding: 30px;
   min-height: 350px;
   border-radius: 5px;
@@ -109,16 +119,20 @@ form {
   flex-direction: column;
   justify-content: space-between;
 }
+.form-container {
+  margin-top: 100px;
+}
 .button-container {
   width: 100%;
   height: auto;
   display: grid;
   grid-template-columns: 49% 49%;
   gap: 2%;
+  row-gap: 20px;
 }
-button {
+button, button:visited {
   background-color: transparent;
-  border: 2px solid #748dcd;
+  border: 2px solid #748dcd94;
   border-radius: 5px;
   color: white;
   font-size: 1rem;
@@ -129,6 +143,19 @@ button {
   font-weight: 550;
   padding: 16px;
   text-align: left;
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+}
+button h2 {
+  margin: 0;
+}
+button #nr {
+  margin-right: 16px;
+  width: 25px;
+  border-radius: 15px;
+  text-align: center;
+  background-color: #313546;
 }
 .next {
   margin-top: 50px;
@@ -137,11 +164,15 @@ button {
   background-color: #445aff;
   border: none;
 }
+.next:hover {
+  background-color: #5a6dfa;
+}
 .button-container button:hover {
   border-color: white;
 }
 .button-container button:disabled {
   opacity: 0.5;
+  border-color: #748dcd;
 }
 .button-container .correct {
   opacity: 1 !important;
@@ -194,6 +225,9 @@ button {
 @media only screen and (max-width: 800px) {
   .button-container {
     grid-template-columns: auto;
+  }
+  .next {
+    margin-top: 5px;
   }
 }
 </style>

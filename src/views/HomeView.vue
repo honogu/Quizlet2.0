@@ -1,39 +1,104 @@
 <template>
-  <h1>Saksa k U1 sõnad</h1>
-  <div class="learn-links">
-    <router-link to="/learn" @click="StartLearn(U1_1)"><button>Learn 1-20</button></router-link>
-    <router-link to="/learn" @click="StartLearn(U1_2)"><button>Learn 21-40</button></router-link>
-    <router-link to="/learn" @click="StartLearn(U1_3)"><button>Learn 41-62</button></router-link>
-  </div>
-  <h1>Saksa k U2 sõnad</h1>
-  <div class="learn-links">
-    <router-link to="/learn" @click="StartLearn(U2_1)"><button>Learn 1-20</button></router-link>
-    <router-link to="/learn" @click="StartLearn(U2_2)"><button>Learn 21-40</button></router-link>
-    <router-link to="/learn" @click="StartLearn(U2_3)"><button>Learn 41-67</button></router-link>
-  </div>
-  <h1>Saksa k U3 sõnad</h1>
-  <div class="learn-links">
-    <router-link to="/learn" @click="StartLearn(U3_1)"><button>Learn 1-20</button></router-link>
-    <router-link to="/learn" @click="StartLearn(U3_2)"><button>Learn 21-40</button></router-link>
-    <router-link to="/learn" @click="StartLearn(U3_3)"><button>Learn 41-62</button></router-link>
-  </div>
-  <h1>Saksa k U4 sõnad</h1>
-  <div class="learn-links">
-    <router-link to="/learn" @click="StartLearn(U4_1)"><button>Learn 1-20</button></router-link>
-    <router-link to="/learn" @click="StartLearn(U4_2)"><button>Learn 21-40</button></router-link>
-    <router-link to="/learn" @click="StartLearn(U4_3)"><button>Learn 41-60</button></router-link>
-    <router-link to="/learn" @click="StartLearn(U4_4)"><button>Learn 61-80</button></router-link>
-    <router-link to="/learn" @click="StartLearn(U4_5)"><button>Learn 81-97</button></router-link>
-    <router-link to="/learn" @click="StartLearn(U4_6)"><button>Learn 98-114</button></router-link>
-  </div>
-  <h1>Saksa k U5 sõnad</h1>
-  <div class="learn-links">
-    <router-link to="/learn" @click="StartLearn(U5_1)"><button>Learn 1-20</button></router-link>
-    <router-link to="/learn" @click="StartLearn(U5_2)"><button>Learn 21-40</button></router-link>
-    <router-link to="/learn" @click="StartLearn(U5_3)"><button>Learn 41-60</button></router-link>
-    <router-link to="/learn" @click="StartLearn(U5_4)"><button>Learn 61-80</button></router-link>
-    <router-link to="/learn" @click="StartLearn(U5_5)"><button>Learn 81-100</button></router-link>
-    <router-link to="/learn" @click="StartLearn(U5_6)"><button>Learn 101-126</button></router-link>
+  <div class="home-container">
+    <h1>Saksa k U1 sõnad</h1>
+    <div class="learn-links">
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U1_1)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 1-20</button>
+      </div>
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U1_2)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 21-40</button>
+      </div>
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U1_3)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 41-62</button>
+      </div>
+    </div>
+    <h1>Saksa k U2 sõnad</h1>
+    <div class="learn-links">
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U2_1)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 1-20</button>
+      </div>
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U2_2)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 21-40</button>
+      </div>
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U2_3)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 41-67</button>
+      </div>
+    </div>
+    <h1>Saksa k U3 sõnad</h1>
+    <div class="learn-links">
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U3_1)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 1-20</button>
+      </div>
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U3_2)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 21-40</button>
+      </div>
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U3_3)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 41-62</button>
+      </div>
+    </div>
+    <h1>Saksa k U4 sõnad</h1>
+    <div class="learn-links">
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U4_1)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 1-20</button>
+      </div>
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U4_2)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 21-40</button>
+      </div>
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U4_3)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 41-60</button>
+      </div>
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U4_4)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 61-80</button>
+      </div>
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U4_5)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 81-100</button>
+      </div>
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U4_6)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 101-114</button>
+      </div>
+    </div>
+    <h1>Saksa k U5 sõnad</h1>
+    <div class="learn-links">
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U5_1)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 1-20</button>
+      </div>
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U5_2)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 21-40</button>
+      </div>
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U5_3)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 41-60</button>
+      </div>
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U5_4)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 61-80</button>
+      </div>
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U5_5)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 81-100</button>
+      </div>
+      <div class="link">
+        <router-link to="/learn" @click="StartLearn(U5_6)"></router-link>
+        <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn 101-126</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -48,22 +113,15 @@ const { StartLearn } = useLearn();
 </script>
 
 <style scoped>
-a {
-  margin: 20px 0;
-  margin-right: 5px;
-  background-color: #2f3857;
-  border-bottom: 5px solid #2f3857;
-  border-top: 5px solid #2f3857;
-  border-radius: 5px;
-  min-width: 200px;
-  padding: 8px 12px;
+.home-container{
+  margin-bottom: 50px;
 }
-a:hover{
-  border-bottom: 5px solid #748dcd;
+a {
+  min-width: 200px;
+  height: 45px;
 }
 button {
   margin: 15px 0;
-  background-color: #2f3857;
   border: none;
   text-align: left;
   min-width: 160px;
@@ -74,8 +132,35 @@ button {
   cursor: pointer;
   text-decoration: none;
   font-weight: 550;
+  background-color: transparent;
 }
 .learn-links {
-  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.learn-links .link {
+  position: relative;
+  height: 45px;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid transparent;
+  border-radius: 5px;
+  background-color: #2f3857;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
+.link:hover{
+  border-bottom: 5px solid #748dcd;
+}
+.learn-links .link a {
+  position: absolute;
+}
+.learn-links img {
+  top: 4px;
+  height: 34px;
+  padding-left: 10px;
 }
 </style>

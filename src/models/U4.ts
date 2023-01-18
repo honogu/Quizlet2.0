@@ -31,7 +31,7 @@ export const U4_2 = ref<Learn[]>([
     { question: 'dušš', answer: 'Dusche, die, -n' },
     { question: 'Ühe pere elamu', answer: 'Einfamilienhaus, das, "-er' },
     { question: 'kitsas', answer: 'eng' },
-    { question: 'âground floorâ', answer: 'Erdgeschoss, das, -e' },
+    { question: '"ground floor"', answer: 'Erdgeschoss, das, -e' },
     { question: 'söögituba', answer: 'Esszimmer, das, -' },
     { question: 'euro', answer: 'Euro, der, -s' },
     { question: 'pudel', answer: 'Flasche, die, -n' },
@@ -41,7 +41,7 @@ export const U4_2 = ref<Learn[]>([
     { question: 'aed', answer: 'Garten, der, "-' },
     { question: 'meeldima', answer: 'gefallen' },
     { question: 'objekt', answer: 'Gegenstand, der, "-e' },
-    { question: 'kastekann', answer: 'Gießkanne, die, -n' },
+    { question: 'kastekann', answer: 'Gießkanne, die, -n' },
     { question: 'inetu', answer: 'hässlich' },
     { question: 'maja', answer: 'Haus, das, "-er' },
     { question: 'valge, hele', answer: 'hell' },
@@ -80,7 +80,7 @@ export const U4_4 = ref<Learn[]>([
     { question: 'kõvade kaantega kaustik', answer: 'Ordner, der, -' },
     { question: 'prügikast (paberikorv)', answer: 'Papierkorb, der, "-e' },
     { question: 'paneelmaja', answer: 'Plattenbau, der, Plattenbauten' },
-    { question: 'soodne (oma hinda väärt)', answer: 'preiswert' },
+    { question: 'soodne (oma hinda väärt)', answer: 'preiswert' },
     { question: 'ruutmeeter', answer: 'Quadratmeter, der, -' },
     { question: 'ruum', answer: 'Raum, "-e' },
     { question: 'paremal', answer: 'rechts' },
@@ -110,13 +110,13 @@ export const U4_5 = ref<Learn[]>([
     { question: 'telefoniraamat', answer: 'Telefonbuch, das, "-er' },
     { question: 'vaip', answer: 'Teppich, der, -e' },
     { question: 'terrass', answer: 'Terrasse, die, -n' },
-    { question: 'kallis', answer: 'teuer' }
+    { question: 'kallis', answer: 'teuer' },
+    { question: 'tint', answer: 'Tinte, die, -n' },
+    { question: 'laud', answer: 'Tisch, der, -e' },
+    { question: 'WC', answer: 'Toilette, die, -n' }
 ]);
 
 export const U4_6 = ref<Learn[]>([
-    { question: 'tint', answer: 'Tinte, die, -n' },
-    { question: 'laud', answer: 'Tisch, der, -e' },
-    { question: 'WC', answer: 'Toilette, die, -n' },
     { question: 'potilill', answer: 'Topfpflanze, die, -n' },
     { question: 'unenägu; unistus', answer: 'Traum, der, "-e' },
     { question: 'trepp', answer: 'Treppe, die, -n' },
