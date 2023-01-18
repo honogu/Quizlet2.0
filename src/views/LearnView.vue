@@ -214,6 +214,7 @@ button #nr {
 }
 
 .bar-container {
+  margin-top: 60px;
   height: 3px;
   width: 100%;
 }
