@@ -276,5 +276,8 @@ button #nr {
     margin-right: 5%;
     width: 90%;
   }
+  .answer-bar-container {
+    margin-bottom: 20px;
+  }
 }
 </style>
