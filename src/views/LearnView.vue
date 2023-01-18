@@ -170,9 +170,6 @@ button #nr {
 .next:hover {
   background-color: #5a6dfa;
 }
-.button-container button:hover {
-  border-color: white;
-}
 .button-container button:disabled {
   opacity: 0.5;
   border-color: #748dcd;
@@ -236,6 +233,12 @@ button #nr {
   left: 0;
   top: 0;
   width: 100%;
+}
+
+@media (hover: hover) {
+  .button-container button:hover {
+    border-color: white;
+  }
 }
 
 @media only screen and (max-width: 800px) {
