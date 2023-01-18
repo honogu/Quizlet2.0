@@ -1,6 +1,6 @@
 <template>
   <div class="over">
-    <Navbar />
+    <Navbar :address="'/words'" :learn="true" />
     <div class="bar-container">
       <div class="bar" :style="{ width: percentage + '%'}"></div>
     </div>
@@ -12,46 +12,46 @@
           <section>Definition</section>
           <section :style="!repeatingWord ? {display: 'none'} : ''" id="repeat">Let's try again</section>
         </div>
-        <h3>{{ qurrentWord?.question }}</h3>
+        <h3>{{ currentWord?.question }}</h3>
       </div>
       <div>
-        <h3 class="motivate-wr" v-if="clicked && qurrentWord?.answer != selectedAnswer">Sa suudad seda!</h3>
-        <h3 class="motivate-co" v-else-if="clicked && qurrentWord?.answer == selectedAnswer">Hea töö!</h3>
+        <h3 class="motivate-wr" v-if="clicked && currentWord?.answer != selectedAnswer">Sa suudad seda!</h3>
+        <h3 class="motivate-co" v-else-if="clicked && currentWord?.answer == selectedAnswer">Hea töö!</h3>
         <h3 class="motivate" v-else>Choose matching term</h3>
         <div class="button-container">
           <button
-            :class="clicked && (qurrentWord?.answer == randomAnswers[0] || selectedAnswer == randomAnswers[0])
-              ? qurrentWord?.answer == randomAnswers[0] ? 'correct' : 'wrong' : ''" 
+            :class="clicked && (currentWord?.answer == randomAnswers[0] || selectedAnswer == randomAnswers[0])
+              ? currentWord?.answer == randomAnswers[0] ? 'correct' : 'wrong' : ''" 
             v-on:click="submitAnswer(randomAnswers[0])" :disabled="clicked" type="button">
-            <h2 id="nr">{{ clicked && (qurrentWord?.answer == randomAnswers[0] || selectedAnswer == randomAnswers[0])
-              ? qurrentWord?.answer == randomAnswers[0] ? '✔️' : '❌' : '1' }}</h2>
+            <h2 id="nr">{{ clicked && (currentWord?.answer == randomAnswers[0] || selectedAnswer == randomAnswers[0])
+              ? currentWord?.answer == randomAnswers[0] ? '✔️' : '❌' : '1' }}</h2>
             <h2>{{ randomAnswers[0] }}</h2>
           </button>
 
           <button
-            :class="clicked && (qurrentWord?.answer == randomAnswers[1] || selectedAnswer == randomAnswers[1])
-              ? qurrentWord?.answer == randomAnswers[1] ? 'correct' : 'wrong' : ''" 
+            :class="clicked && (currentWord?.answer == randomAnswers[1] || selectedAnswer == randomAnswers[1])
+              ? currentWord?.answer == randomAnswers[1] ? 'correct' : 'wrong' : ''" 
             v-on:click="submitAnswer(randomAnswers[1])" :disabled="clicked" type="button">
-            <h2 id="nr">{{ clicked && (qurrentWord?.answer == randomAnswers[1] || selectedAnswer == randomAnswers[1])
-              ? qurrentWord?.answer == randomAnswers[1] ? '✔️' : '❌' : '2' }}</h2>
+            <h2 id="nr">{{ clicked && (currentWord?.answer == randomAnswers[1] || selectedAnswer == randomAnswers[1])
+              ? currentWord?.answer == randomAnswers[1] ? '✔️' : '❌' : '2' }}</h2>
             <h2>{{ randomAnswers[1] }}</h2>
           </button>
 
           <button
-            :class="clicked && (qurrentWord?.answer == randomAnswers[2] || selectedAnswer == randomAnswers[2])
-              ? qurrentWord?.answer == randomAnswers[2] ? 'correct' : 'wrong' : ''" 
+            :class="clicked && (currentWord?.answer == randomAnswers[2] || selectedAnswer == randomAnswers[2])
+              ? currentWord?.answer == randomAnswers[2] ? 'correct' : 'wrong' : ''" 
             v-on:click="submitAnswer(randomAnswers[2])" :disabled="clicked" type="button">
-            <h2 id="nr">{{ clicked && (qurrentWord?.answer == randomAnswers[2] || selectedAnswer == randomAnswers[2])
-              ? qurrentWord?.answer == randomAnswers[2] ? '✔️' : '❌' : '3' }}</h2>
+            <h2 id="nr">{{ clicked && (currentWord?.answer == randomAnswers[2] || selectedAnswer == randomAnswers[2])
+              ? currentWord?.answer == randomAnswers[2] ? '✔️' : '❌' : '3' }}</h2>
             <h2>{{ randomAnswers[2] }}</h2>
           </button>
 
           <button
-            :class="clicked && (qurrentWord?.answer == randomAnswers[3] || selectedAnswer == randomAnswers[3])
-              ? qurrentWord?.answer == randomAnswers[3] ? 'correct' : 'wrong' : ''" 
+            :class="clicked && (currentWord?.answer == randomAnswers[3] || selectedAnswer == randomAnswers[3])
+              ? currentWord?.answer == randomAnswers[3] ? 'correct' : 'wrong' : ''" 
             v-on:click="submitAnswer(randomAnswers[3])" :disabled="clicked" type="button">
-            <h2 id="nr">{{ clicked && (qurrentWord?.answer == randomAnswers[3] || selectedAnswer == randomAnswers[3])
-              ? qurrentWord?.answer == randomAnswers[3] ? '✔️' : '❌' : '4' }}</h2>
+            <h2 id="nr">{{ clicked && (currentWord?.answer == randomAnswers[3] || selectedAnswer == randomAnswers[3])
+              ? currentWord?.answer == randomAnswers[3] ? '✔️' : '❌' : '4' }}</h2>
             <h2>{{ randomAnswers[3] }}</h2>
           </button>
         </div>
@@ -65,7 +65,7 @@
     <div class="answer-bar-container">
       <div class="answer-bar" :style="{ width: lastPercentage + '%'}"></div>
     </div>
-    <button class="next" type="button" v-on:click="StartLearn(currentWords)"><h1>Start over</h1></button>
+    <button class="next" type="button" v-on:click="StartLearn()"><h1>Start over</h1></button>
   </div>
 </template>
 
@@ -73,15 +73,17 @@
 import Navbar from "@/components/NavbarComp.vue";
 import useLearn from '../stores/LearnStore';
 import { onMounted, ref, watch } from 'vue';
-const { qurrentWord, randomAnswers, SubmitResult, StartLearn, currentWords, NextQuestion, percentage, correctCount, totalCount, lastPercentage, repeatingWord } = useLearn();
+import router from "@/router";
+const { currentWord, randomAnswers, SubmitResult, StartLearn, currentWords, NextQuestion, percentage, correctCount, totalCount, lastPercentage, repeatingWord } = useLearn();
 const status = ref<boolean>(true);
 const clicked = ref<boolean>(false);
 const selectedAnswer = ref();
 
 onMounted(() => setUp());
-watch(qurrentWord, setUp);
+watch(currentWord, setUp);
 function setUp()
 {
+  if (currentWords.value.length == 0) router.push('/')
   status.value = true;
   clicked.value = false;
   selectedAnswer.value = undefined;
@@ -90,7 +92,7 @@ function setUp()
 const submitAnswer = (answer: string) => {
   clicked.value = true;
   selectedAnswer.value = answer;
-  if (answer === qurrentWord.value?.answer)
+  if (answer === currentWord.value?.answer)
   {
     status.value = true;
     SubmitResult(true);

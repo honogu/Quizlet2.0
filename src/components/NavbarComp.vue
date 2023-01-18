@@ -1,15 +1,24 @@
 <template>
     <nav>
-        <div class="nav-container">
+        <div class="nav-container" v-if="learn">
             <img alt="learn" :src="require('@/assets/Learn.svg')" />
             <h1>Learn</h1>
         </div>
-        <router-link to="/"><button>X</button></router-link>
+        <div>
+            <router-link class="back" :to="address"><button>X</button></router-link>
+        </div>
     </nav>
 </template>
 
+<script setup lang="ts">
+import { defineProps } from 'vue';
+defineProps<{address: string, learn: boolean}>();
+</script>
+
 <style scoped>
 nav {
+    position: absolute;
+    left: 0;
     width: 96%;
     height: 60px;
     box-shadow: 0 0 10px #9ec9ed44;
@@ -17,6 +26,9 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0 2%;
+}
+nav div {
+    width: 100%;
 }
 .nav-container {
     display: flex;

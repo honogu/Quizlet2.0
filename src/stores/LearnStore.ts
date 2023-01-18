@@ -16,14 +16,16 @@ const wrongWords = ref<Learn[]>([]);
 const lastPercentage = ref(0);
 
 const repeatingWord = ref(false);
-const qurrentWord = ref<Learn>();
+const currentWord = ref<Learn>();
 
 export default function useLearn() {
-
-    const StartLearn = (allWords: Learn[]) => {
+    const SetWords = (allWords: Learn[]) => {
         currentWords.value = allWords;
-        remainingWords.value = allWords.map(w => w)
-        allAnswers.value = allWords.map(w => w.answer)
+    }
+
+    const StartLearn = () => {
+        remainingWords.value = currentWords.value.map(w => w)
+        allAnswers.value = currentWords.value.map(w => w.answer)
         correctWords.value = [];
         wrongWords.value = [];
         totalCount.value = allAnswers.value.length;
@@ -38,16 +40,16 @@ export default function useLearn() {
         randomAnswers.value = [];
 
         let randomIndex = Math.floor(Math.random() * remainingWords.value.length);
-        qurrentWord.value = remainingWords.value[randomIndex];
+        currentWord.value = remainingWords.value[randomIndex];
 
-        if (wrongWords.value.indexOf(qurrentWord.value!) != -1) repeatingWord.value = true
+        if (wrongWords.value.indexOf(currentWord.value!) != -1) repeatingWord.value = true
 
         while (randomAnswers.value.length != 3) {
             randomIndex = Math.floor(Math.random() * allAnswers.value.length);
             const randomAnswer = allAnswers.value[randomIndex];
-            if (randomAnswers.value.indexOf(randomAnswer) == -1 && randomAnswer != qurrentWord.value.answer) randomAnswers.value.push(randomAnswer);
+            if (randomAnswers.value.indexOf(randomAnswer) == -1 && randomAnswer != currentWord.value.answer) randomAnswers.value.push(randomAnswer);
         }
-        randomAnswers.value.push(qurrentWord.value.answer);
+        randomAnswers.value.push(currentWord.value.answer);
 
         randomAnswers.value = shuffle(randomAnswers.value);
     }
@@ -55,18 +57,18 @@ export default function useLearn() {
     const SubmitResult = async (status: boolean) => {
         if (status)
         {
-            if (wrongWords.value.indexOf(qurrentWord.value!) == -1) correctWords.value.push(qurrentWord.value!)
-            removeQuestion(qurrentWord.value ?? { question: '', answer: '' });
+            if (wrongWords.value.indexOf(currentWord.value!) == -1) correctWords.value.push(currentWord.value!)
+            removeQuestion(currentWord.value ?? { question: '', answer: '' });
             await delay(1000);
             NextQuestion();
         }
         else 
         {
-            wrongWords.value.push(qurrentWord.value!)
+            wrongWords.value.push(currentWord.value!)
         }
     }
 
-    return { StartLearn, currentWords, qurrentWord, randomAnswers, SubmitResult, NextQuestion, percentage, correctCount, totalCount, lastPercentage, repeatingWord };
+    return { SetWords, StartLearn, currentWords, currentWord, randomAnswers, SubmitResult, NextQuestion, percentage, correctCount, totalCount, lastPercentage, repeatingWord };
 }
 
 function shuffle(array: any) {

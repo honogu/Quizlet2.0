@@ -41,7 +41,7 @@ h1 {
 }
 h3 {
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   word-wrap: break-word;
   position: relative;
   word-break: break-word;
