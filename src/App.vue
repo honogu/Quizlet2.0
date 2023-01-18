@@ -60,7 +60,7 @@ section {
 
 @media only screen and (max-width: 800px) {
   main {
-    width: 90%;
+    width: 100%;
   }
 }
 </style>

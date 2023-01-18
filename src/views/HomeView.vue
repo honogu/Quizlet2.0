@@ -115,6 +115,7 @@ const { StartLearn } = useLearn();
 <style scoped>
 .home-container{
   margin-bottom: 50px;
+  padding: 0 5px;
 }
 a {
   min-width: 200px;

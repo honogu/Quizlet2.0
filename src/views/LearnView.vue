@@ -8,7 +8,10 @@
   <div class="form-container" v-if="percentage != 100">
     <form>
       <div>
-        <section>Definition</section>
+        <div class="def">
+          <section>Definition</section>
+          <section :style="!repeatingWord ? {display: 'none'} : ''" id="repeat">Let's try again</section>
+        </div>
         <h3>{{ qurrentWord?.question }}</h3>
       </div>
       <div>
@@ -70,7 +73,7 @@
 import Navbar from "@/components/NavbarComp.vue";
 import useLearn from '../stores/LearnStore';
 import { onMounted, ref, watch } from 'vue';
-const { qurrentWord, randomAnswers, SubmitResult, StartLearn, currentWords, NextQuestion, percentage, correctCount, totalCount, lastPercentage } = useLearn();
+const { qurrentWord, randomAnswers, SubmitResult, StartLearn, currentWords, NextQuestion, percentage, correctCount, totalCount, lastPercentage, repeatingWord } = useLearn();
 const status = ref<boolean>(true);
 const clicked = ref<boolean>(false);
 const selectedAnswer = ref();
@@ -201,6 +204,19 @@ button #nr {
   transition: width 500ms;
 }
 
+.def {
+  display: flex;
+}
+#repeat {
+  margin-left: 17px;
+  opacity: 0.7;
+  background-color: #803900;
+  font-weight: 100;
+  color: white;
+  border-radius: 10px;
+  padding: 0 8px;
+}
+
 .answer-bar-container {
   border-radius: 10px;
   height: 10px;
@@ -223,11 +239,18 @@ button #nr {
 }
 
 @media only screen and (max-width: 800px) {
+  .form-container {
+    margin-top: 63px;
+  }
+  form {
+    padding: 15px;
+    border-radius: 0;
+  }
   .button-container {
     grid-template-columns: auto;
   }
   .next {
-    margin-top: 5px;
+    margin: 15px 15px;
   }
 }
 </style>

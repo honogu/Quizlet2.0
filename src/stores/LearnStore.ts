@@ -15,6 +15,7 @@ const correctWords = ref<Learn[]>([]);
 const wrongWords = ref<Learn[]>([]);
 const lastPercentage = ref(0);
 
+const repeatingWord = ref(false);
 const qurrentWord = ref<Learn>();
 
 export default function useLearn() {
@@ -30,6 +31,7 @@ export default function useLearn() {
     }
 
     const NextQuestion = () => {
+        repeatingWord.value = false
         correctCount.value = correctWords.value.length;
         lastPercentage.value = Math.round(correctCount.value / allAnswers.value.length * 100);
         percentage.value = Math.round((allAnswers.value.length - remainingWords.value.length) / allAnswers.value.length * 100);
@@ -37,7 +39,8 @@ export default function useLearn() {
 
         let randomIndex = Math.floor(Math.random() * remainingWords.value.length);
         qurrentWord.value = remainingWords.value[randomIndex];
-        console.log(remainingWords.value)
+
+        if (wrongWords.value.indexOf(qurrentWord.value!) != -1) repeatingWord.value = true
 
         while (randomAnswers.value.length != 3) {
             randomIndex = Math.floor(Math.random() * allAnswers.value.length);
@@ -63,7 +66,7 @@ export default function useLearn() {
         }
     }
 
-    return { StartLearn, currentWords, qurrentWord, randomAnswers, SubmitResult, NextQuestion, percentage, correctCount, totalCount, lastPercentage };
+    return { StartLearn, currentWords, qurrentWord, randomAnswers, SubmitResult, NextQuestion, percentage, correctCount, totalCount, lastPercentage, repeatingWord };
 }
 
 function shuffle(array: any) {
