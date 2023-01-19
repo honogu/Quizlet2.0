@@ -21,7 +21,7 @@ export const U3_1 = ref<Learn[]>([
     { question: 'kreeka keel', answer: 'Griechisch, das' },
     { question: 'tervitus', answer: 'Gruß, der, "-e' },
     { question: 'pealinn', answer: 'Hauptstadt, die, "-e' },
-    { question: 'informatsioon', answer: 'Information, die, -en' },
+    { question: 'informatsioon', answer: 'Information, die, -en' }
 ]);
 
 export const U3_2 = ref<Learn[]>([
@@ -44,7 +44,7 @@ export const U3_2 = ref<Learn[]>([
     { question: 'koht, paik', answer: 'Ort, der, -e' },
     { question: 'ida', answer: 'Osten, der' },
     { question: 'juhtuma', answer: 'passieren' },
-    { question: 'portugali keel', answer: 'Portugiesisch, das' },
+    { question: 'portugali keel', answer: 'Portugiesisch, das' }
 ]);
 
 export const U3_3 = ref<Learn[]>([

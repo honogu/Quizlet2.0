@@ -43,11 +43,11 @@ export const U1_2 = ref<Learn[]>([
     { question: 'selge', answer: 'klar' },
     { question: 'tulema', answer: 'kommen' },
     { question: 'ma olen ... pärit', answer: 'ich komme aus ...' },
-    { question: 'kursus', answer: 'Kurs, der, -e' }
+    { question: 'kursus', answer: 'Kurs, der, -e' },
+    { question: 'maa', answer: 'Land, das, Länder' }
 ]);
 
 export const U1_3 = ref<Learn[]>([
-    { question: 'maa', answer: 'Land, das, Länder' },
     { question: 'elama', answer: 'leben' },
     { question: 'õppima', answer: 'lernen' },
     { question: 'lugema', answer: 'lesen' },

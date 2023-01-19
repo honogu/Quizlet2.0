@@ -21,7 +21,7 @@ export const U4_1 = ref<Learn[]>([
     { question: 'lai', answer: 'breit' },
     { question: 'prillid', answer: 'Brille, die, -n' },
     { question: 'raamaturiiul', answer: 'Bücherregal, das, -e' },
-    { question: 'pööning', answer: 'Dachboden, der, "-' },
+    { question: 'pööning', answer: 'Dachboden, der, "-' }
 ]);
 
 export const U4_2 = ref<Learn[]>([
@@ -44,7 +44,7 @@ export const U4_2 = ref<Learn[]>([
     { question: 'kastekann', answer: 'Gießkanne, die, -n' },
     { question: 'inetu', answer: 'hässlich' },
     { question: 'maja', answer: 'Haus, das, "-er' },
-    { question: 'valge, hele', answer: 'hell' },
+    { question: 'valge, hele', answer: 'hell' }
 ]);
 
 export const U4_3 = ref<Learn[]>([
@@ -90,7 +90,7 @@ export const U4_4 = ref<Learn[]>([
     { question: 'saun', answer: 'Sauna, die, -s, (Saunen)' },
     { question: 'magamistuba', answer: 'Schlafzimmer, das, -' },
     { question: 'kitsas', answer: 'schmal' },
-    { question: 'ilus', answer: 'schön' },
+    { question: 'ilus', answer: 'schön' }
 ]);
 
 export const U4_5 = ref<Learn[]>([
