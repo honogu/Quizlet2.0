@@ -15,8 +15,8 @@
         <h3>{{ currentWord?.question }}</h3>
       </div>
       <div>
-        <h3 class="motivate-wr" v-if="clicked && currentWord?.answer != selectedAnswer">{{ wrongMessage }}</h3>
-        <h3 class="motivate-co" v-else-if="clicked && currentWord?.answer == selectedAnswer">{{ correctMessage }}</h3>
+        <h3 class="motivate-wr" v-if="clicked && currentWord?.answer.replaceAll('...', '').trim() != selectedAnswer">{{ wrongMessage }}</h3>
+        <h3 class="motivate-co" v-else-if="clicked && currentWord?.answer.replaceAll('...', '').trim() == selectedAnswer">{{ correctMessage }}</h3>
         <section class="motivate" v-else>Your answer</section>
         <div v-if="status" class="write-container">
           <div v-if="!upper" class="letter-container">
