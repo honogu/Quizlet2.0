@@ -46,7 +46,7 @@
             <h2>{{ currentWord?.answer }}</h2>
           </button>
         </div>
-        <button class="next" id="different" v-if="status" type="button" v-on:click="submitAnswer(formAnswer.answer)"><h1>Answer</h1></button>
+        <button class="next" id="different" v-if="status" type="button" v-on:click="submitAnswer(formAnswer.answer.replaceAll('...', '').trim())"><h1>Answer</h1></button>
       </div>
     </form>
     <button class="next" type="button" v-if="!status" v-on:click="Next()"><h1>Continue</h1></button>
@@ -97,8 +97,9 @@ function setUp()
 
 const submitAnswer = (answer: string) => {
   clicked.value = true;
-  selectedAnswer.value = answer.trim();
-  if (answer === currentWord.value?.answer.trim())
+  selectedAnswer.value = answer;
+  console.log(answer === currentWord.value?.answer.replaceAll('...', '').trim())
+  if (answer === currentWord.value?.answer.replaceAll('...', '').trim())
   {
     status.value = true;
     SubmitResult(true);
