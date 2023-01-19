@@ -1,7 +1,7 @@
 <template>
     <Navbar :address="'/'" :learn="false" />
     <div class="words-container">
-        <h1>Saksa k U1 sõnad | {{ terms }}</h1>
+        <h1>{{ terms }}</h1>
         <div class="learn-links">
             <div class="link">
                 <router-link to="/learn" @click="StartLearn()"></router-link>

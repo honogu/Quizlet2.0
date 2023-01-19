@@ -19,12 +19,13 @@ export const U2_1 = ref<Learn[]>([
     { question: 'värv', answer: 'die Farbe, -n' },
     { question: 'aken', answer: 'das Fenster' },
     { question: 'Televiisor', answer: 'der Fernseher' },
-    { question: 'die Fliege, -n', answer: 'der Film, -e' },
-    { question: 'kuju', answer: 'die Form, -en' },
-    { question: 'sulepea', answer: 'der Füller' }
+    { question: 'film', answer: 'der Film, -e' },
+    { question: 'kärbes', answer: 'die Fliege, -n' },
+    { question: 'kuju', answer: 'die Form, -en' }
 ]);
 
 export const U2_2 = ref<Learn[]>([
+    { question: 'sulepea', answer: 'der Füller' },
     { question: 'Jalgpall', answer: 'der Fußball, -e' },
     { question: 'objekt', answer: 'der Gegenstand, -e' },
     { question: 'lugu, ajalugu', answer: 'die Geschichte, -n' },
@@ -43,11 +44,11 @@ export const U2_2 = ref<Learn[]>([
     { question: 'õpik', answer: 'das Kursbauch, -er' },
     { question: 'õpetaja', answer: 'der Kursleiter, die Kursleiterin(nen)' },
     { question: 'klass, loenguruum', answer: 'der Kursraum, -e' },
-    { question: 'õpilane', answer: 'der Kursteilnehmer, die Kursteilnehmerin(nen)' },
-    { question: 'aeglane', answer: 'langsam' }
+    { question: 'õpilane', answer: 'der Kursteilnehmer, die Kursteilnehmerin(nen)' }
 ]);
 
 export const U2_3 = ref<Learn[]>([
+    { question: 'aeglane', answer: 'langsam' },
     { question: 'plakat', answer: 'das Plakat, -e' },
     { question: 'armastama', answer: 'lieben' },
     { question: 'nimekiri', answer: 'die Liste, -n' },
@@ -60,7 +61,10 @@ export const U2_3 = ref<Learn[]>([
     { question: 'paar', answer: 'das Paar, -e' },
     { question: 'vaheaeg, paus', answer: 'die Pause, -n' },
     { question: 'paber', answer: 'das Papier, -e' },
-    { question: 'kustukumm', answer: 'der Radiergummi, -s' },
+    { question: 'kustukumm', answer: 'der Radiergummi, -s' }
+]);
+
+export const U2_4 = ref<Learn[]>([
     { question: 'raadio', answer: 'das Radio, -s' },
     { question: 'järjekord', answer: 'die Reihenfolge, -n' },
     { question: 'õige', answer: 'richtig' },

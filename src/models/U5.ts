@@ -21,7 +21,7 @@ export const U5_1 = ref<Learn[]>([
     { question: 'kiirtee', answer: 'Autobahn, die, -en' },
     { question: 'rong (ka raudtee)', answer: 'Bahn, die, -en' },
     { question: 'vastama', answer: 'beantworten' },
-    { question: 'amet', answer: 'Beruf, der, -e' },
+    { question: 'amet', answer: 'Beruf, der, -e' }
 ]);
 
 export const U5_2 = ref<Learn[]>([
@@ -44,7 +44,7 @@ export const U5_2 = ref<Learn[]>([
     { question: 'see (asesõna)', answer: 'es' },
     { question: 'eurooplane / -lanna', answer: 'Europäer/in, der/die, -/-nen' },
     { question: 'sõiduplaan', answer: 'Fahrplan, der, "-e' },
-    { question: 'peaaegu', answer: 'fast' },
+    { question: 'peaaegu', answer: 'fast' }
 ]);
 
 export const U5_3 = ref<Learn[]>([
@@ -67,7 +67,7 @@ export const U5_3 = ref<Learn[]>([
     { question: 'klass', answer: 'Klasse, die, -n' },
     { question: 'keeruline', answer: 'kompliziert' },
     { question: 'haigekassa', answer: 'Krankenkasse, die, -n' },
-    { question: 'veidi peale ...', answer: 'kurz nach' },
+    { question: 'veidi peale ...', answer: 'kurz nach' }
 ]);
 
 export const U5_4 = ref<Learn[]>([
@@ -90,7 +90,7 @@ export const U5_4 = ref<Learn[]>([
     { question: 'Öösel', answer: 'nachts' },
     { question: 'null', answer: 'Null, die -en' },
     { question: 'avamise aeg', answer: 'Öffnungszeit, die, -en' },
-    { question: 'sageli; tihti', answer: 'oft' },
+    { question: 'sageli; tihti', answer: 'oft' }
 ]);
 
 export const U5_5 = ref<Learn[]>([
@@ -113,7 +113,7 @@ export const U5_5 = ref<Learn[]>([
     { question: 'tund', answer: 'Stunde, die -n' },
     { question: 'supp', answer: 'Suppe, die, -n' },
     { question: 'päevaplaan', answer: 'Tagesablauf, der, "-e' },
-    { question: 'helistama', answer: 'telefonieren (mit jdm)' },
+    { question: 'helistama', answer: 'telefonieren (mit jdm)' }
 ]);
 
 export const U5_6 = ref<Learn[]>([
@@ -129,7 +129,10 @@ export const U5_6 = ref<Learn[]>([
     { question: 'veerand peale', answer: 'Viertel nach' },
     { question: 'veerand enne', answer: 'Viertel vor' },
     { question: 'viisa', answer: 'Visum, das, Visa' },
-    { question: '-st/ -lt; (seestütlev/ alaltütlev)', answer: 'von' },
+    { question: '-st/ -lt; (seestütlev/ alaltütlev)', answer: 'von' }
+]);
+
+export const U5_7 = ref<Learn[]>([
     { question: 'ette valmistama; valmistuma', answer: 'vorbereiten' },
     { question: 'soovitama', answer: 'vorschlagen' },
     { question: 'kui', answer: 'wann' },
