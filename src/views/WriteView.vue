@@ -167,6 +167,7 @@ form {
   padding: 5px;
   height: 40px;
   border-radius: 5px;
+  cursor: pointer;
 }
 .next h1 {
   margin: 0;
@@ -221,6 +222,9 @@ button #nr {
   padding: 0;
   text-align: center;
   display: block;
+}
+.letter-container .letter:hover {
+  background-color: #272730;
 }
 .letter-container .upper {
   height: 40px;
