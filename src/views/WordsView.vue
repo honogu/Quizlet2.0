@@ -16,10 +16,10 @@
         <div class="all-words">
             <div class="words" v-for="word in words" :key="word.question">
                 <div id="f">
-                    <h3>{{ word.question }}</h3>
+                    <h2>{{ word.question }}</h2>
                 </div>
                 <div id="s">
-                    <h3>{{ word.answer }}</h3>
+                    <h2>{{ word.answer }}</h2>
                 </div>
             </div>
         </div>
@@ -65,6 +65,9 @@ button {
     text-decoration: none;
     font-weight: 550;
     background-color: transparent;
+}
+h2 {
+    font-weight: 200;
 }
 .learn-links {
     display: flex;

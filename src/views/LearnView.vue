@@ -17,7 +17,7 @@
       <div>
         <h3 class="motivate-wr" v-if="clicked && currentWord?.answer != selectedAnswer">{{ wrongMessage }}</h3>
         <h3 class="motivate-co" v-else-if="clicked && currentWord?.answer == selectedAnswer">{{ correctMessage }}</h3>
-        <h3 class="motivate" v-else>Choose matching term</h3>
+        <h2 class="motivate" v-else>Choose matching term</h2>
         <div class="button-container">
           <button
             :class="clicked && (currentWord?.answer == randomAnswers[0] || selectedAnswer == randomAnswers[0])
@@ -205,6 +205,9 @@ button #nr {
   transition: background-color 500ms;
   opacity: 1 !important;
   border-color: #ee706a !important;
+}
+.motivate {
+  font-weight: 200;
 }
 .motivate-wr {
   color: #ee706a;

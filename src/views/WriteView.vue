@@ -19,6 +19,20 @@
         <h3 class="motivate-co" v-else-if="clicked && currentWord?.answer == selectedAnswer">{{ correctMessage }}</h3>
         <section class="motivate" v-else>Your answer</section>
         <div v-if="status" class="write-container">
+          <div v-if="!upper" class="letter-container">
+            <button class="letter" type="button" v-on:click="formAnswer.answer += 'ä'">ä</button>
+            <button class="letter" type="button" v-on:click="formAnswer.answer += 'ö'">ö</button>
+            <button class="letter" type="button" v-on:click="formAnswer.answer += 'ß'">ß</button>
+            <button class="letter" type="button" v-on:click="formAnswer.answer += 'ü'">ü</button>
+            <button class="upper" type="button" v-on:click="toggle()">⮸</button>
+          </div>
+          <div v-else class="letter-container">
+            <button class="letter" type="button" v-on:click="formAnswer.answer += 'Ä'">Ä</button>
+            <button class="letter" type="button" v-on:click="formAnswer.answer += 'Ö'">Ö</button>
+            <button class="letter" type="button" v-on:click="formAnswer.answer += 'SS'">SS</button>
+            <button class="letter" type="button" v-on:click="formAnswer.answer += 'Ü'">Ü</button>
+            <button class="upper" type="button" v-on:click="toggle()">⮸</button>
+          </div>
           <input placeholder="Type the German" type="text" maxlength="25" v-model="formAnswer.answer">
         </div>
         <div v-else class="write-container">
@@ -57,11 +71,17 @@ const { StartWrite, words, currentWord, SubmitResult, NextQuestion, percentage, 
 const status = ref<boolean>(true);
 const clicked = ref<boolean>(false);
 const selectedAnswer = ref();
+const upper = ref(false);
 
 const formAnswer: Ref<Learn> = ref<Learn>({
   question: '',
   answer: ''
 });
+
+function toggle()
+{
+  upper.value = !upper.value
+}
 
 onMounted(() => setUp());
 watch(currentWord, setUp);
@@ -186,6 +206,32 @@ button #nr {
   border-radius: 15px;
   text-align: center;
   background-color: #313546;
+}
+.letter-container {
+  display: flex;
+}
+.letter-container .letter {
+  height: 40px;
+  width: 40px;
+  min-height: 40px;
+  min-width: 40px;
+  margin: 10px 5px;
+  background-color: #0a0a2e;
+  border-color: white;
+  padding: 0;
+  text-align: center;
+  display: block;
+}
+.letter-container .upper {
+  height: 40px;
+  width: 40px;
+  min-height: 40px;
+  min-width: 40px;
+  margin: 10px 5px;
+  border-color: transparent;
+  padding: 0;
+  text-align: center;
+  display: block;
 }
 .write-container button:disabled {
   opacity: 0.5;
