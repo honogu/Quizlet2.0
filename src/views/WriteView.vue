@@ -15,8 +15,8 @@
         <h3>{{ currentWord?.question }}</h3>
       </div>
       <div>
-        <h3 class="motivate-wr" v-if="clicked && currentWord?.answer.replaceAll('...', '').trim() != selectedAnswer">{{ wrongMessage }}</h3>
-        <h3 class="motivate-co" v-else-if="clicked && currentWord?.answer.replaceAll('...', '').trim() == selectedAnswer">{{ correctMessage }}</h3>
+        <h3 class="motivate-wr" v-if="clicked && currentWord?.answer.replaceAll('.', '').replaceAll('!', '').trim() != selectedAnswer">{{ wrongMessage }}</h3>
+        <h3 class="motivate-co" v-else-if="clicked && currentWord?.answer.replaceAll('.', '').replaceAll('!', '').trim() == selectedAnswer">{{ correctMessage }}</h3>
         <section class="motivate" v-else>Your answer</section>
         <div v-if="status" class="write-container">
           <div v-if="!upper" class="letter-container">
@@ -33,7 +33,7 @@
             <button class="letter" type="button" v-on:click="formAnswer.answer += 'Ü'">Ü</button>
             <button class="upper" type="button" v-on:click="toggle()">⇈</button>
           </div>
-          <input placeholder="Type the German" type="text" maxlength="25" v-model="formAnswer.answer">
+          <input placeholder="Type the German" type="text" maxlength="100" v-model="formAnswer.answer">
         </div>
         <div v-else class="write-container">
           <button class="wrong" type="button">
@@ -46,7 +46,7 @@
             <h2>{{ currentWord?.answer }}</h2>
           </button>
         </div>
-        <button class="next" id="different" v-if="status" type="button" v-on:click="submitAnswer(formAnswer.answer.replaceAll('...', '').trim())"><h1>Answer</h1></button>
+        <button class="next" id="different" v-if="status" type="button" v-on:click="submitAnswer(formAnswer.answer.replaceAll('.', '').replaceAll('!', '').trim())"><h1>Answer</h1></button>
       </div>
     </form>
     <button class="next" type="button" v-if="!status" v-on:click="Next()"><h1>Continue</h1></button>
@@ -98,8 +98,7 @@ function setUp()
 const submitAnswer = (answer: string) => {
   clicked.value = true;
   selectedAnswer.value = answer;
-  console.log(answer === currentWord.value?.answer.replaceAll('...', '').trim())
-  if (answer === currentWord.value?.answer.replaceAll('...', '').trim())
+  if (answer === currentWord.value?.answer.replaceAll('.', '').replaceAll('!', '').trim())
   {
     status.value = true;
     SubmitResult(true);
