@@ -9,7 +9,7 @@
             </div> 
             <div class="link">
                 <router-link to="/write" @click="StartWrite()"></router-link>
-                <img alt="write" :src="require('@/assets/Learn.svg')" /><button>Write</button>
+                <img alt="write" :src="require('@/assets/Write.svg')" /><button>Write</button>
             </div> 
         </div>
         <h2>Terms in this set ({{ words.length }})</h2>

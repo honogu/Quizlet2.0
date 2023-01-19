@@ -1,7 +1,8 @@
 <template>
     <nav>
         <div class="nav-container">
-            <img v-if="title !== 'Quizlet 2.0'" alt="learn" :src="require('@/assets/Learn.svg')" />
+            <img v-if="title !== 'Quizlet 2.0' && title == 'Learn'" alt="learn" :src="require('@/assets/Learn.svg')" />
+            <img v-else-if="title !== 'Quizlet 2.0' && title == 'Write'" alt="learn" :src="require('@/assets/Write.svg')" />
             <h1>{{ title }}</h1>
         </div>
         <div>
