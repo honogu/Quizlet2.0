@@ -7,8 +7,7 @@ export const correctMessages = ref<string[]>([
     'Suurepärane!',
     'See on sul käes!',
     'Sa oled väga tubli!',
-    'Jätka samas vaimus!',
-    'You go girl!'
+    'Jätka samas vaimus!'
 ]);
 
 export const wrongMessages = ref<string[]>([
