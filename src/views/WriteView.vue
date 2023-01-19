@@ -24,14 +24,14 @@
             <button class="letter" type="button" v-on:click="formAnswer.answer += 'ö'">ö</button>
             <button class="letter" type="button" v-on:click="formAnswer.answer += 'ß'">ß</button>
             <button class="letter" type="button" v-on:click="formAnswer.answer += 'ü'">ü</button>
-            <button class="upper" type="button" v-on:click="toggle()">⏏</button>
+            <button class="upper" type="button" v-on:click="toggle()">⇈</button>
           </div>
           <div v-else class="letter-container">
             <button class="letter" type="button" v-on:click="formAnswer.answer += 'Ä'">Ä</button>
             <button class="letter" type="button" v-on:click="formAnswer.answer += 'Ö'">Ö</button>
             <button class="letter" type="button" v-on:click="formAnswer.answer += 'SS'">SS</button>
             <button class="letter" type="button" v-on:click="formAnswer.answer += 'Ü'">Ü</button>
-            <button class="upper" type="button" v-on:click="toggle()">⏏</button>
+            <button class="upper" type="button" v-on:click="toggle()">⇈</button>
           </div>
           <input placeholder="Type the German" type="text" maxlength="25" v-model="formAnswer.answer">
         </div>
