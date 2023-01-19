@@ -1,6 +1,6 @@
 <template>
   <div class="over">
-    <Navbar :address="'/words'" :title="'Learn'" />
+    <Navbar :address="'/words'" :title="'Write'" />
     <div class="bar-container">
       <div class="bar" :style="{ width: percentage + '%'}"></div>
     </div>
@@ -17,44 +17,22 @@
       <div>
         <h3 class="motivate-wr" v-if="clicked && currentWord?.answer != selectedAnswer">{{ wrongMessage }}</h3>
         <h3 class="motivate-co" v-else-if="clicked && currentWord?.answer == selectedAnswer">{{ correctMessage }}</h3>
-        <h3 class="motivate" v-else>Choose matching term</h3>
-        <div class="button-container">
-          <button
-            :class="clicked && (currentWord?.answer == randomAnswers[0] || selectedAnswer == randomAnswers[0])
-              ? currentWord?.answer == randomAnswers[0] ? 'correct' : 'wrong' : ''" 
-            v-on:click="submitAnswer(randomAnswers[0])" :disabled="clicked" type="button">
-            <h2 id="nr">{{ clicked && (currentWord?.answer == randomAnswers[0] || selectedAnswer == randomAnswers[0])
-              ? currentWord?.answer == randomAnswers[0] ? '✔️' : '❌' : '1' }}</h2>
-            <h2>{{ randomAnswers[0] }}</h2>
+        <section class="motivate" v-else>Your answer</section>
+        <div v-if="status" class="write-container">
+          <input placeholder="Type the German" type="text" maxlength="25" v-model="formAnswer.answer">
+        </div>
+        <div v-else class="write-container">
+          <button class="wrong" type="button">
+            <h2 id="nr">❌</h2>
+            <h2>{{ formAnswer.answer }}</h2>
           </button>
-
-          <button
-            :class="clicked && (currentWord?.answer == randomAnswers[1] || selectedAnswer == randomAnswers[1])
-              ? currentWord?.answer == randomAnswers[1] ? 'correct' : 'wrong' : ''" 
-            v-on:click="submitAnswer(randomAnswers[1])" :disabled="clicked" type="button">
-            <h2 id="nr">{{ clicked && (currentWord?.answer == randomAnswers[1] || selectedAnswer == randomAnswers[1])
-              ? currentWord?.answer == randomAnswers[1] ? '✔️' : '❌' : '2' }}</h2>
-            <h2>{{ randomAnswers[1] }}</h2>
-          </button>
-
-          <button
-            :class="clicked && (currentWord?.answer == randomAnswers[2] || selectedAnswer == randomAnswers[2])
-              ? currentWord?.answer == randomAnswers[2] ? 'correct' : 'wrong' : ''" 
-            v-on:click="submitAnswer(randomAnswers[2])" :disabled="clicked" type="button">
-            <h2 id="nr">{{ clicked && (currentWord?.answer == randomAnswers[2] || selectedAnswer == randomAnswers[2])
-              ? currentWord?.answer == randomAnswers[2] ? '✔️' : '❌' : '3' }}</h2>
-            <h2>{{ randomAnswers[2] }}</h2>
-          </button>
-
-          <button
-            :class="clicked && (currentWord?.answer == randomAnswers[3] || selectedAnswer == randomAnswers[3])
-              ? currentWord?.answer == randomAnswers[3] ? 'correct' : 'wrong' : ''" 
-            v-on:click="submitAnswer(randomAnswers[3])" :disabled="clicked" type="button">
-            <h2 id="nr">{{ clicked && (currentWord?.answer == randomAnswers[3] || selectedAnswer == randomAnswers[3])
-              ? currentWord?.answer == randomAnswers[3] ? '✔️' : '❌' : '4' }}</h2>
-            <h2>{{ randomAnswers[3] }}</h2>
+          <section id="middle">Correct answer</section>
+          <button class="correct" type="button">
+            <h2 id="nr">✔️</h2>
+            <h2>{{ currentWord?.answer }}</h2>
           </button>
         </div>
+        <button class="next" id="different" v-if="status" type="button" v-on:click="submitAnswer(formAnswer.answer)"><h1>Answer</h1></button>
       </div>
     </form>
     <button class="next" type="button" v-if="!status" v-on:click="Next()"><h1>Continue</h1></button>
@@ -65,25 +43,33 @@
     <div class="answer-bar-container">
       <div class="answer-bar" :style="{ width: lastPercentage + '%'}"></div>
     </div>
-    <button class="next" type="button" v-on:click="StartLearn()"><h1>Start over</h1></button>
+    <button class="next" type="button" v-on:click="StartWrite()"><h1>Start over</h1></button>
   </div>
 </template>
-
+  
 <script setup lang="ts">
 import Navbar from "@/components/NavbarComp.vue";
-import useLearn from '../stores/LearnStore';
-import { onMounted, ref, watch } from 'vue';
+import useWrite from '../stores/WriteStore';
+import { onMounted, ref, Ref, watch } from 'vue';
+import { Learn } from '../models/Learn';
 import router from "@/router";
-const { StartLearn, words, currentWord, randomAnswers, SubmitResult, NextQuestion, percentage, correctCount, totalCount, lastPercentage, repeatingWord, correctMessage, wrongMessage } = useLearn();
+const { StartWrite, words, currentWord, SubmitResult, NextQuestion, percentage, correctCount, totalCount, lastPercentage, repeatingWord, correctMessage, wrongMessage } = useWrite();
 const status = ref<boolean>(true);
 const clicked = ref<boolean>(false);
 const selectedAnswer = ref();
+
+const formAnswer: Ref<Learn> = ref<Learn>({
+  question: '',
+  answer: ''
+});
 
 onMounted(() => setUp());
 watch(currentWord, setUp);
 function setUp()
 {
   if (words.value.length == 0) router.push('/')
+  formAnswer.value.answer = '';
+  formAnswer.value.question = '';
   status.value = true;
   clicked.value = false;
   selectedAnswer.value = undefined;
@@ -110,6 +96,8 @@ const Next = () => {
   status.value = true;
   clicked.value = false;
   selectedAnswer.value = undefined;
+  formAnswer.value.answer = '';
+  formAnswer.value.question = '';
 };
 
 </script>
@@ -130,15 +118,48 @@ form {
 .form-container-end {
   padding: 0 15px;
 }
-.button-container {
-  width: 100%;
-  height: auto;
-  display: grid;
-  grid-template-columns: 49% 49%;
-  gap: 2%;
-  row-gap: 20px;
+.write-container {
+  display: flex;
+  flex-direction: column;
 }
-.button-container button {
+.write-container input {
+  height: 42px;
+  outline: none;
+  border: none;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-radius: 5px;
+  background-color: #0a0a2e;
+  padding-left: 10px;
+}
+.write-container input:focus {
+  border-bottom: 3px solid white;
+}
+#different {
+  margin-top: 5px;
+  float: right;
+}
+.next {
+  margin-top: 50px;
+  width: 120px;
+  background-color: #445aff;
+  border: none;
+  padding: 5px;
+  height: 40px;
+  border-radius: 5px;
+}
+.next h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 15px;
+}
+#title {
+  margin-top: 85px;
+}
+.next:hover {
+  background-color: #5a6dfa;
+}
+.write-container button {
   background-color: transparent;
   border: 2px solid #748dcd94;
   border-radius: 5px;
@@ -166,32 +187,12 @@ button #nr {
   text-align: center;
   background-color: #313546;
 }
-.next {
-  margin-top: 50px;
-  width: 120px;
-  background-color: #445aff;
-  border: none;
-  padding: 5px;
-  height: 40px;
-  border-radius: 5px;
-}
-.next h1 {
-  margin: 0;
-  text-align: center;
-  font-size: 15px;
-}
-#title {
-  margin-top: 85px;
-}
-.next:hover {
-  background-color: #5a6dfa;
-}
-.button-container button:disabled {
+.write-container button:disabled {
   opacity: 0.5;
   transition: opacity 500ms;
   border-color: #748dcd;
 }
-.button-container .correct {
+.write-container .correct {
   transition: opacity 500ms;
   transition: border-color 500ms;
   transition: background-color 500ms;
@@ -199,7 +200,7 @@ button #nr {
   border-color: white !important;
   background-color: #327f4e !important;
 }
-.button-container .wrong {
+.write-container .wrong {
   transition: opacity 500ms;
   transition: border-color 500ms;
   transition: background-color 500ms;
@@ -237,6 +238,9 @@ button #nr {
   border-radius: 10px;
   padding: 0 8px;
 }
+#middle {
+  margin: 10px 0;
+}
 
 .answer-bar-container {
   border-radius: 10px;
@@ -267,7 +271,7 @@ button #nr {
     padding: 15px;
     border-radius: 0;
   }
-  .button-container {
+  .write-container {
     grid-template-columns: auto;
   }
   .next {

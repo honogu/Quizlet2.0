@@ -1,5 +1,5 @@
 <template>
-    <Navbar :address="'/'" :learn="false" />
+    <Navbar :address="'/'" :title="'Quizlet 2.0'" />
     <div class="words-container">
         <h1>{{ terms }}</h1>
         <div class="learn-links">
@@ -7,15 +7,19 @@
                 <router-link to="/learn" @click="StartLearn()"></router-link>
                 <img alt="learn" :src="require('@/assets/Learn.svg')" /><button>Learn</button>
             </div> 
+            <div class="link">
+                <router-link to="/write" @click="StartWrite()"></router-link>
+                <img alt="write" :src="require('@/assets/Learn.svg')" /><button>Write</button>
+            </div> 
         </div>
-        <h2>Terms in this set ({{ currentWords.length }})</h2>
+        <h2>Terms in this set ({{ words.length }})</h2>
         <div class="all-words">
-            <div class="words" v-for="words in currentWords" :key="words.question">
+            <div class="words" v-for="word in words" :key="word.question">
                 <div id="f">
-                    <h3>{{ words.question }}</h3>
+                    <h3>{{ word.question }}</h3>
                 </div>
                 <div id="s">
-                    <h3>{{ words.answer }}</h3>
+                    <h3>{{ word.answer }}</h3>
                 </div>
             </div>
         </div>
@@ -26,10 +30,12 @@
 import Navbar from "@/components/NavbarComp.vue";
 import useWords from '../stores/WordsStore';
 import useLearn from '../stores/LearnStore';
+import useWrite from '../stores/WriteStore';
 import router from "@/router";
 import { onMounted } from 'vue';
-const { StartLearn, currentWords } = useLearn();
-const { terms } = useWords();
+const { StartLearn } = useLearn();
+const { StartWrite } = useWrite();
+const { terms, words } = useWords();
 
 onMounted(() => setUp());
 function setUp()

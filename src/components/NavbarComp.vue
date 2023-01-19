@@ -1,8 +1,8 @@
 <template>
     <nav>
         <div class="nav-container">
-            <img  v-if="learn" alt="learn" :src="require('@/assets/Learn.svg')" />
-            <h1>{{ learn ? 'Learn' : 'Quizlet 2.0' }}</h1>
+            <img v-if="title !== 'Quizlet 2.0'" alt="learn" :src="require('@/assets/Learn.svg')" />
+            <h1>{{ title }}</h1>
         </div>
         <div>
             <router-link class="back" :to="address"><button>X</button></router-link>
@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { defineProps } from 'vue';
-defineProps<{address: string, learn: boolean}>();
+defineProps<{address: string, title: string}>();
 </script>
 
 <style scoped>

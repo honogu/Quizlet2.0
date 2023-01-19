@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import WordsView from '../views/WordsView.vue'
 import LearnView from '../views/LearnView.vue'
+import WriteView from '../views/WriteView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -18,6 +19,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/learn',
     name: 'learn',
     component: LearnView
+  },
+  {
+    path: '/write',
+    name: 'write',
+    component: WriteView
   }
 ]
 

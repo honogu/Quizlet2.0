@@ -21,7 +21,7 @@ body {
 main {
   width: 53%;
 }
-a, h2 {
+a, h2, input {
   color: white;
   font-size: 1rem;
   letter-spacing: normal;
