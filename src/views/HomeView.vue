@@ -107,6 +107,25 @@
         <button>terms 115-128</button>
       </div>
     </div>
+    <h1>Saksa k U7 sõnad</h1>
+    <div class="learn-links">
+      <div class="link">
+        <router-link to="/words" @click="SetTerms(U7_1, 'Saksa k U7 sõnad | terms 1-20')"></router-link>
+        <button>terms 1-20</button>
+      </div>
+      <div class="link">
+        <router-link to="/words" @click="SetTerms(U7_2, 'Saksa k U7 sõnad | terms 21-40')"></router-link>
+        <button>terms 21-40</button>
+      </div>
+      <div class="link">
+        <router-link to="/words" @click="SetTerms(U7_3, 'Saksa k U7 sõnad | terms 41-60')"></router-link>
+        <button>terms 41-60</button>
+      </div>
+      <div class="link">
+        <router-link to="/words" @click="SetTerms(U7_4, 'Saksa k U7 sõnad | terms 61-82')"></router-link>
+        <button>terms 61-82</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -117,6 +136,7 @@ import { U2_1, U2_2, U2_3, U2_4 } from '../models/U2';
 import { U3_1, U3_2, U3_3 } from '../models/U3';
 import { U4_1, U4_2, U4_3, U4_4, U4_5, U4_6 } from '../models/U4';
 import { U5_1, U5_2, U5_3, U5_4, U5_5, U5_6, U5_7 } from '../models/U5';
+import { U7_1, U7_2, U7_3, U7_4 } from '../models/U7';
 const { SetTerms } = useWords();
 </script>
 

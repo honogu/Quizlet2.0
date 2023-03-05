@@ -1,0 +1,96 @@
+import { ref } from 'vue';
+import { Learn } from './Learn';
+
+export const U7_1 = ref<Learn[]>([
+    { question: 'abholen', answer: 'ära tooma, järele minema' },
+    { question: 'allein', answer: 'üksi' },
+    { question: 'Arbeitslose, der, -en', answer: 'töötu' },
+    { question: 'Arbeitsmarkt, der, "-e', answer: 'tööturg' },
+    { question: 'Arbeitsplatz, der, "-e', answer: 'töökoht' },
+    { question: 'Arbeitszeit, die, -en', answer: 'tööaeg' },
+    { question: 'Automechaniker/in, der/die, -/-nen', answer: 'automehaanik' },
+    { question: 'Bäcker/in, der/die, -/-nen', answer: 'pagar' },
+    { question: 'Bankangestellte, der/die, -n', answer: 'pangaametnik' },
+    { question: 'beraten', answer: 'nõustama' },
+    { question: 'beruflich', answer: 'tööalaselt' },
+    { question: 'bringen', answer: 'tooma' },
+    { question: 'Bruder, der, "-', answer: 'vend' },
+    { question: 'Chance, die, -en', answer: 'šanss' },
+    { question: 'Computerprogramm, das, -e', answer: 'arvutiprogramm' },
+    { question: 'Ding, das, -e', answer: 'asi, ese' },
+    { question: 'einpacken', answer: 'sisse pakkima' },
+    { question: 'Fabrik, die, -en', answer: 'vabrik' },
+    { question: 'Ferien, die (Pl.)', answer: 'vaheaeg' },
+    { question: 'fernsehen', answer: 'telekat vaatama' }
+]);
+
+export const U7_2 = ref<Learn[]>([
+    { question: 'Firma, die, Firmen', answer: 'firma' },
+    { question: 'Fitness-Studio, das, -s', answer: 'jõusaal' },
+    { question: 'flexibel', answer: 'paindlik' },
+    { question: 'Flugticket, das, -s', answer: 'lennupilet' },
+    { question: 'Flugzeug, das, -e', answer: 'lennuk' },
+    { question: 'freundlich', answer: 'sõbralik' },
+    { question: 'Friseursalon, der, -s', answer: 'juuksurisalong' },
+    { question: 'früh', answer: 'vara' },
+    { question: 'Geld, das', answer: 'raha' },
+    { question: 'Haar, das, -e', answer: 'juus' },
+    { question: 'Hand, die, "-e', answer: 'käelaba' },
+    { question: 'hassen', answer: 'vihkama' },
+    { question: 'Haushalt, der, -e', answer: 'majapidamine' },
+    { question: 'Hausfrau, die, -en', answer: 'koduperenaine' },
+    { question: 'Hausmann, der, "-er', answer: 'koduperemees' },
+    { question: 'informieren', answer: 'informeerima, teavitama' },
+    { question: 'Kauffrau, die, Kaufleute', answer: 'kaupmees' },
+    { question: 'Kaufmann, der, Kaufleute', answer: 'kaupmees' },
+    { question: 'Kellner/in, der/die, -/-nen', answer: 'kelner/ ettekandja' },
+    { question: 'Kindergarten, der, "-en', answer: 'lasteaed' }
+]);
+
+export const U7_3 = ref<Learn[]>([
+    { question: 'Kollege/in, der/die, -n/-nen', answer: 'kolleeg, töökaaslane' },
+    { question: 'Krankenpfleger, der, -', answer: 'medvend' },
+    { question: 'Krankenschwester, die, -n', answer: 'medõde' },
+    { question: 'Kunde/Kundin, der/die, -n/-nen', answer: 'klient' },
+    { question: 'leicht', answer: 'kerge, lihtne' },
+    { question: 'leiten', answer: 'juhtima' },
+    { question: 'Lösung, die, -en', answer: 'lahendus' },
+    { question: 'Maschine, die, -n', answer: 'masin' },
+    { question: 'Mechaniker/in, der/die, -/-nen', answer: 'mehaanik' },
+    { question: 'Mitglied, das, -er', answer: 'liige' },
+    { question: 'nie', answer: 'ei iial' },
+    { question: 'organisieren', answer: 'organiseerima, korraldama' },
+    { question: 'Patient/in, der/die, -en/-nen', answer: 'patsient' },
+    { question: 'planen', answer: 'planeerima' },
+    { question: 'Programmierer/in, der/die, -/-nen', answer: 'programmeerija' },
+    { question: 'reparieren', answer: 'parandama' },
+    { question: 'reservieren', answer: 'broneerima' },
+    { question: 'schneiden', answer: 'lõikama' },
+    { question: 'Schuh, der, -e', answer: 'kingas' },
+    { question: 'Schuhgeschäft, das, -e', answer: 'kingapood' }
+]);
+
+export const U7_4 = ref<Learn[]>([
+    { question: 'sitzen', answer: 'istuma' },
+    { question: 'Sohn, der, "-e', answer: 'poeg' },
+    { question: 'Statistik, die, -en', answer: 'statistika' },
+    { question: 'stimmen', answer: 'korras olema, klappima' },
+    { question: 'das stimmt', answer: 'see on õige/ tõsi' },
+    { question: 'stundenlang', answer: 'tundide viisi' },
+    { question: 'Suche, die, -n', answer: 'otsimine, otsing' },
+    { question: 'tauschen', answer: 'vahetama' },
+    { question: 'Taxifahrer/in, der/die, -/-nen', answer: 'taksojuht' },
+    { question: 'Tier, das, -e', answer: 'loom' },
+    { question: 'Tochter, die, "-', answer: 'tütar' },
+    { question: 'Trainer/in, der/die, -/-nen', answer: 'treener' },
+    { question: 'Training, das, -s', answer: 'trenn' },
+    { question: 'tun', answer: 'tegema' },
+    { question: 'unterrichten', answer: 'õpetama' },
+    { question: 'untersuchen', answer: 'uurima' },
+    { question: 'verdienen', answer: 'teenima' },
+    { question: 'verkaufen', answer: 'müüma' },
+    { question: 'Verkäufer/in, der/die, -/-nen', answer: 'müüja' },
+    { question: 'wenig', answer: 'vähe' },
+    { question: 'Werkstatt, die, "-en', answer: 'töökoda' },
+    { question: 'Wochenende, das, -n', answer: 'nädalavahetus' }
+]);
